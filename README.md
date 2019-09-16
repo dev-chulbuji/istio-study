@@ -1,2 +1,3 @@
-# istio-study
-istio study category
+# istio in action
+
+1. Introducing Istio service mesh
