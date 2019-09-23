@@ -6,10 +6,10 @@
 
 2. First steps with Istio (상준님)
 
-https://yunsangjun.github.io/blog/istio/2019/09/21/istio-study-2.1.html
-https://yunsangjun.github.io/blog/istio/2019/09/21/istio-study-2.2.html
-https://yunsangjun.github.io/blog/istio/2019/09/22/istio-study-2.3.html
-https://yunsangjun.github.io/blog/istio/2019/09/22/istio-study-2.4.html
+    https://yunsangjun.github.io/blog/istio/2019/09/21/istio-study-2.1.html
+    https://yunsangjun.github.io/blog/istio/2019/09/21/istio-study-2.2.html
+    https://yunsangjun.github.io/blog/istio/2019/09/22/istio-study-2.3.html
+    https://yunsangjun.github.io/blog/istio/2019/09/22/istio-study-2.4.html
 
 3. Meet Envoy proxy: Istio's data plane (동현님)
 
