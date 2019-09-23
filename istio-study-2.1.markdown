@@ -130,7 +130,7 @@ Control plane은 아래와 같이 구성됩니다.
 Grafana, Prometheus와 같이 익숙한 구성 요소도 있지만 익숙치 않은 구성 요소도 보입니다.
 이 구성 요소에 대해서는 뒤에서 좀 더 살펴보도록 하겠습니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.1-001.png)
+![](./images/istio-study-2.1-001.png)
 [출처: Istio in Action MEAP Edition]
 
 Istio control plane의 구성 요소가 단일 인스턴스로 배포되어 있는 것을 볼 수 있습니다.

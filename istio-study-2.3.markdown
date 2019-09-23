@@ -16,7 +16,7 @@ Conference Outfitter의 application은 일반적인 온라인 웹 스토어입�
 이것은 backend의 catalog, inventory 서비스를 관리하는 gateway 서비스와 통신합니다.
 첫 번째 예제에서는 gateway와 catalog 서비스만 배포합니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.3-001.png)
+![](./images/istio-study-2.3-001.png)
 [출처: Istio in Action MEAP Edition]
 
 ## 1.예제 소스코드 준비
@@ -190,7 +190,7 @@ $ kubectl run -i --rm --restart=Never dummy --image=dockerqa/curl:ubuntu-trusty 
 
 지금까지 catalog 및 apigateway 서비스를 Istio service proxy와 함께 배포했습니다.
 각 서비스는 자신의 proxy를 가지고 있고 서비스 간의 모든 traffic은 이 proxy를 통해서 전달됩니다.
-![](/blog/assets/images/kubernetes/istio/istio-study-2.3-002.png)
+![](./images/istio-study-2.3-002.png)
 [출처: Istio in Action MEAP Edition]
 
 

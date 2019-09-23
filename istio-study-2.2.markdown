@@ -28,7 +28,7 @@ Istio Pilot은 사용자와 운영자가 service proxy를 data plane에 구성�
 Pilot은 플랫폼에 독립적이며 플랫폼 adapter를 사용해 플랫폼에 특화된 서비스를 사용합니다.
 예를 들어, Kubernetes 플랫폼에서는 Kubernetes에서 제공하는 방식으로 service registration 및 discovery 서비스를 활용합니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-001.png)
+![](./images/istio-study-2.2-001.png)
 [출처: Istio in Action MEAP Edition]
 
 Pilot의 설정을 통해 traffic 유입, 라우팅, 서비스 복원 등을 관리할 수 있습니다.
@@ -42,7 +42,7 @@ Istio는 기본적으로 Envoy를 service proxy로 사용합니다.
 traffic header 정보에 `x-dark-launch`의 갑싱 `v2`이면 catalog 서비스의 `v2`로 라우팅을 하려합니다.
 이 경우 Pilot의 설정을 아래와 같이 설정할 수 있습니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-002.png)
+![](./images/istio-study-2.2-002.png)
 [출처: Istio in Action MEAP Edition]
 
 1. 매칭하려는 요청 조건
@@ -114,7 +114,7 @@ Application 및 service는 cluster 외부의 application과 통신해야하는 �
 예를 들어, 모놀리틱 앱, 상용 소프트웨어, 메세징 큐, 데이터베이스, 3rd pary 앱 등이 있습니다. 
 운영자는 이런 traffic이 cluster로 들어오거나 나가는 것을 적절하게 구성해야합니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-003.png)
+![](./images/istio-study-2.2-003.png)
 [출처: Istio in Action MEAP Edition]
 
 Istio에서 이런 기능을 제공하는 구성 요소는 istio-ingressgateway, istio-egressgateway라고 합니다.
@@ -139,7 +139,7 @@ X.509 인증서를 사용해 traffic을 암호화합니다.
 Istio Citadel은 위와 같은 보안을 다루는 구성 요소로 인증서의 증명, 발급, 마운트 및 교체를 처리합니다. 
 이에 대한 상세한 내용은 Istio의 보안 부분을 다룰 때 좀 더 상세히 살펴보겠습니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-004.png)
+![](./images/istio-study-2.2-004.png)
 [출처: Istio in Action MEAP Edition]
 
 ## 4.Istio Mixer
@@ -174,15 +174,15 @@ Mixer는 속성 처리 엔진을 사용하여 속성을 정책 엔진 또는 API
 Mixer를 사용하면 3rd party에서 속성 처리에 사용하는 어댑터를 생성하고 속성을 백엔드 별 메시지로 작성할 수 있습니다.
 이 백엔드 시스템은 긍정 또는 부정으로 응답할 수 있고 API에서 정해진대로 요청을 처리합니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-005.png)
+![](./images/istio-study-2.2-005.png)
 [출처: Istio in Action MEAP Edition]
 
 아래는 Istio Policy 엔진으로 전송되는 속성 샘플입니다.
 일반적으로 사용되는 배포 속성은 [Attribute Vocabulary](https://istio.io/docs/reference/config/policy-and-telemetry/attribute-vocabulary/) 에서 확인할 수 있습니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-006.png)
+![](./images/istio-study-2.2-006.png)
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-007.png)
+![](./images/istio-study-2.2-007.png)
 [출처: Istio in Action MEAP Edition]
 
 
@@ -194,7 +194,7 @@ Check API와 마찬가지로 Report API는 요청에 대한 속성을 전송하�
 Service proxy가 요청을 처리될때 그 요청의 속성은 proxy에 의해 일괄 처리되고 특정 요청이 들어올 때 또는 일정 시간 후에 Mixer로 전송됩니다.
 예를 들어, 100개의 요청이 서비스로 유입되면 service proxy는 그 요청들의 속성을 일괄적으로 처리하고 Mixer로 전송합니다.
 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.2-008.png)
+![](./images/istio-study-2.2-008.png)
 [출처: Istio in Action MEAP Edition]
 
 Control plane에 실제로 Mixer 구성 요소가 배포되어 있진 않습니다. 

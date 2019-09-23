@@ -53,14 +53,14 @@ $ kubectl port-forward -n istio-system $GRAFANA 8080:3000
 
 웹 브라우저에서 `localhost:8080`로 접속합니다.
 가장 먼저 Istio dashboard의 리스트를 확인할 수 있습니다.
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-001.png)
+![](./images/istio-study-2.4-001.png)
 [출처: Istio in Action MEAP Edition]
 
 리스트에서 Istio Service Dashboard를 살펴보겠습니다.
 Service combo box에서 apigateway.istioinaction.svc.cluster.local를 선택합니다.
 하단의 그래프에서 Client Request Volume과 Client Success Rate metric을 확인할 수 있습니다.
 이 값은 보통 비어있거나 "N/A" 상태입니다. 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-002.png)
+![](./images/istio-study-2.4-002.png)
 [출처: Istio in Action MEAP Edition]
 
 터미널에서 서비스에 traffic을 몇 차례 요청합니다. 
@@ -70,7 +70,7 @@ $ while true; do curl $URL/api/catalog; sleep .5; done
 
 Grafana dashboard로 돌아와보면 아래와 같이 metric에 변화가 있는 것을 확인할 수 있습니다. 
 서비스 호출이 100% 성공했다는 것을 알 수 있고 P50, P90, 및 P99 tail latencies를 볼 수 있습니다.
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-003.png)
+![](./images/istio-study-2.4-003.png)
 [출처: Istio in Action MEAP Edition]
 
 여기서 중요한 점은 metric을 확인하기 위해 application 코드에 아무것도 추가하지 않았다는 것입니다.
@@ -88,7 +88,7 @@ $ kubectl port-forward -n istio-system $TRACING 8181:16686
 웹 브라우저에서 `http://localhost:8181/`에 접속합니다.
 Service combo box에서 istio-ingressgateway를 선택합니다.
 그리고 Find Traces 버튼을 선택합니다.
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-004.png)
+![](./images/istio-study-2.4-004.png)
 [출처: Istio in Action MEAP Edition]
 
 만약 아무 것도 나타나지 않는다면 traffic을 발생시키기 위해 서비스를 몇 회 호출합니다.
@@ -98,11 +98,11 @@ $ while true; do curl $URL/api/catalog; sleep .5; done
 
 다시 Jaeger dashboard로 돌아와서 Find Traces 버튼을 선택합니다.
 분산 tracing span이 생성된 것을 확인할 수 있습니다. 
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-005.png)
+![](./images/istio-study-2.4-005.png)
 [출처: Istio in Action MEAP Edition]
 
 Span을 선택하면 특정 요청에 대해 상세한 정보를 확인할 수 있습니다.
-![](/blog/assets/images/kubernetes/istio/istio-study-2.4-006.png)
+![](./images/istio-study-2.4-006.png)
 [출처: Istio in Action MEAP Edition]
 
 ## 3.Istio resiliency
