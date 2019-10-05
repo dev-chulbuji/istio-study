@@ -9,7 +9,7 @@ https://github.com/istioinaction/book-source-code
 
 2. First steps with Istio (상준님)
 
-3. Meet Envoy proxy: Istio's data plane (동현님)
+3. [Meet Envoy proxy: Istio's data plane](chap03) (동현님)
 
 ## Part 2
 4. The edge: Getting traffic into your cluster (동진님)
