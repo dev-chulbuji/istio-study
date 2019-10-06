@@ -3,7 +3,7 @@
 ## 4.1 Traffic ingress concepts
 
 ### 4.1.1 Virtual IPs: simplifying service access
-![chat04_01](./images/04_01.png)
+![chat04_01](images/04_01.png)
 - client -> (query) -> `api.istioinaction.io/v1/products`
 - client network stack
     - resolve domain name to ip address (DNS server)
@@ -12,7 +12,7 @@
     - virtual Ip -> (single instance x) -> reverse proxy
 
 ### 4.1.2 Virtual Hosting: multiple services from a single access point
-![chat04_01](./images/04_01.png)
+![chat04_01](images/04_01.png)
 - prd.istioinaction.io & api.istioinaction.io -> same virtual IP
 - virtual hosting
     - hosting multiple different services at single entry point
