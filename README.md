@@ -7,9 +7,9 @@ https://github.com/istioinaction/book-source-code
 ## Part 1
 1. Introducing Istio service mesh (승호님)
 
-[2. First steps with Istio (상준님)](https://yunsangjun.github.io/blog/istio/2019/09/21/istio-study-2.1.html)
+2. First steps with Istio (상준님)
 
-3. Meet Envoy proxy: Istio's data plane (동현님)
+3. [Meet Envoy proxy: Istio's data plane](chap03) (동현님)
 
 ## Part 2
 4. The edge: Getting traffic into your cluster (동진님)
