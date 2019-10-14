@@ -14,7 +14,7 @@ https://github.com/istioinaction/book-source-code
 ## Part 2
 4. The edge: Getting traffic into your cluster (동진님)
 5. Traffic control: Fine-grained traffic routing between your services (동규님)
-6. Resilience: Solving application-networking challenges (동진님)
+6. Resilience: Solving application-networking challenges (님)
 7. Observability with Istio: understanding the behavior of your services (진웅님)
 
 --- 
