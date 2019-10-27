@@ -12,7 +12,7 @@ https://github.com/istioinaction/book-source-code
 3. [Meet Envoy proxy: Istio's data plane](chap03) (동현님)
 
 ## Part 2
-4. The edge: Getting traffic into your cluster (동진님)
+4. [The edge: Getting traffic into your cluster](./chap04/index.md) (동진님)
 5. Traffic control: Fine-grained traffic routing between your services (동규님)
 6. Resilience: Solving application-networking challenges (상현님)
 7. Observability with Istio: understanding the behavior of your services (진웅님)
