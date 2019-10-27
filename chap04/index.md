@@ -20,7 +20,6 @@
     - HTTP/1.1: `Host` header
     - HTTP/2: `:authority` header
     - TCP: `SNI(Server Name Indicator)`
-    
 
 ---
 
@@ -108,14 +107,95 @@ $ istioctl proxy-config route {ingress gateway pod name} -o json  -n istio-syste
 
 ### 4.3.1 HTTP traffic with TLS
 - MITM attack (이야기 하고 싶은 것)
+- TLS helps to mitigate this attack.
+- types
+    - outside - ingressgateway
+        ![chat04_04](images/04_04.png)
+    - internal traffic
 
 
+### 4.3.2 HTTP redirect to HTTPS
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: custom-coolstore-gateway
+spec:
+  selector:
+    istio: custom-ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "apiserver.istioinaction.io"
+    tls:
+      httpsRedirect: true             << 
+  - port:
+      number: 443
+      name: https
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      privateKey: /etc/istio/ingressgateway-certs/tls.key
+    hosts:
+    - "apiserver.istioinaction.io"
+```
 
+### 4.3.3 HTTP traffic with mutual TLS
+![chat04_06](images/04_06.png)
 
+### 4.3.4 Serving multiple virtual hosts with TLS
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: coolstore-gateway
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 443
+      name: https-apiserver
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
+      privateKey: /etc/istio/ingressgateway-certs/tls.key
+hosts:
+    - "apiserver.istioinaction.io"
+  - port:
+      number: 443
+      name: https-catalog
+      protocol: HTTPS
+    tls:
+      mode: SIMPLE
+      serverCertificate: /etc/istio/catalog-ingressgateway-certs/tls.crt
+      privateKey: /etc/istio/catalog-ingressgateway-certs/tls.key
+    hosts:
+    - "catalog.istioinaction.io"
+```
+- how does it know?
+    - SNI(Server Name Indication)
+        - hand-shake과정 초기에 client가 server에게 어떤 호스트로 접속하는지 알리는 역할
+        - multi host의 multi cert를 사용 할 수 있음
+        - nginx의 여러 server_name을 사용하는 것과 같은 원리
 
+---
 
+## 4.4 TCP traffic
+- When Istio treats the traffic as plain TCP, we do not get as many useful features like retries, request-level circuit breaking, complex routing, etc.
+    - Istio cannot tell what protocol is being used
+    
+### 4.4.1 Exposing TCP ports on the Istio Gateway
+- databases, message queues, caches, legacy applications
 
+### 4.4.2 Traffic routing with SNI and TLS
 
+## 4.5 Summary
 
 
 
