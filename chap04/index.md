@@ -21,6 +21,9 @@
     - HTTP/2: `:authority` header
     - TCP: `SNI(Server Name Indicator)`
 
+> HTTP/2 통신의 HTTS 통신은 ALPN (TLS extension) 사용
+> ALPN(Application Layer Protocol Negotiation)은 ClientHello 확장기능으로 handshake 후의 Application Layer에서의 프로토콜과 버전을 결
+
 ---
 
 ## 4.2 Istio Gateway
@@ -165,7 +168,7 @@ spec:
       mode: SIMPLE
       serverCertificate: /etc/istio/ingressgateway-certs/tls.crt
       privateKey: /etc/istio/ingressgateway-certs/tls.key
-hosts:
+    hosts:
     - "apiserver.istioinaction.io"
   - port:
       number: 443
@@ -196,16 +199,3 @@ hosts:
 ### 4.4.2 Traffic routing with SNI and TLS
 
 ## 4.5 Summary
-
-
-
-
-
-
-
-
-
-
-
-
-
