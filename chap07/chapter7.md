@@ -75,10 +75,10 @@ OpenTracing 통합을 통한 분산 추적가능
     service/catalog created               deployment.extensions/catalog created
     service/apigateway created            deployment.extensions/apigateway created
 
-    $  kubectl exec -it apigateway-67bd5dfd77-g7gcf \
+    $ kubectl exec -it apigateway-67bd5dfd77-g7gcf \
      -c istio-proxy -- curl localhost:15000/stats
 
-    kubectl exec -it apigateway-67bd5dfd77-g7gcf -c istio-proxy \
+    $ kubectl exec -it apigateway-67bd5dfd77-g7gcf -c istio-proxy \
       -- curl localhost:15000/stats | grep cluster.inbound | grep 8080
 
     apigateway.istioinaction.svc.cluster.local.bind_errors: 0
