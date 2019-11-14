@@ -71,38 +71,42 @@ OpenTracing 통합을 통한 분산 추적가능
 
 실습내용 → Makefile error(내용 경로 파일 부재)
 
-    $ make deploy-apigateway-with-catalog
-    service/catalog created               deployment.extensions/catalog created
-    service/apigateway created            deployment.extensions/apigateway created
+```
+$ make deploy-apigateway-with-catalog
+service/catalog created               deployment.extensions/catalog created
+service/apigateway created            deployment.extensions/apigateway created
+```
+```
+$ kubectl exec -it apigateway-67bd5dfd77-g7gcf \
+  -c istio-proxy -- curl localhost:15000/stats
+```
+```
+$ kubectl exec -it apigateway-67bd5dfd77-g7gcf -c istio-proxy \
+    -- curl localhost:15000/stats | grep cluster.inbound | grep 8080
 
-    $ kubectl exec -it apigateway-67bd5dfd77-g7gcf \
-     -c istio-proxy -- curl localhost:15000/stats
-
-    $ kubectl exec -it apigateway-67bd5dfd77-g7gcf -c istio-proxy \
-      -- curl localhost:15000/stats | grep cluster.inbound | grep 8080
-
-    apigateway.istioinaction.svc.cluster.local.bind_errors: 0
-    apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_200: 3
-    apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_2xx: 3
-    apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_completed: 3
-    apigateway.istioinaction.svc.cluster.local.lb_healthy_panic: 0
-    apigateway.istioinaction.svc.cluster.local.lb_local_cluster_not_ok: 0
-    apigateway.istioinaction.svc.cluster.local.lb_recalculate_zone_structures: 0
-    apigateway.istioinaction.svc.cluster.local.lb_subsets_active: 0
-    apigateway.istioinaction.svc.cluster.local.lb_subsets_created: 0
-    apigateway.istioinaction.svc.cluster.local.lb_subsets_fallback: 0
-    apigateway.istioinaction.svc.cluster.local.lb_subsets_removed: 0
-    apigateway.istioinaction.svc.cluster.local.lb_subsets_selected: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_cluster_too_small: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_no_capacity_left: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_number_differs: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_routing_all_directly: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_routing_cross_zone: 0
-    apigateway.istioinaction.svc.cluster.local.lb_zone_routing_sampled: 0
-    apigateway.istioinaction.svc.cluster.local.max_host_weight: 0
-    apigateway.istioinaction.svc.cluster.local.membership_change: 1
-    apigateway.istioinaction.svc.cluster.local.membership_healthy: 1
-    apigateway.istioinaction.svc.cluster.local.membership_total: 1
+apigateway.istioinaction.svc.cluster.local.bind_errors: 0
+apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_200: 3
+apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_2xx: 3
+apigateway.istioinaction.svc.cluster.local.internal.upstream_rq_completed: 3
+apigateway.istioinaction.svc.cluster.local.lb_healthy_panic: 0
+apigateway.istioinaction.svc.cluster.local.lb_local_cluster_not_ok: 0
+apigateway.istioinaction.svc.cluster.local.lb_recalculate_zone_structures: 0
+apigateway.istioinaction.svc.cluster.local.lb_subsets_active: 0
+apigateway.istioinaction.svc.cluster.local.lb_subsets_created: 0
+apigateway.istioinaction.svc.cluster.local.lb_subsets_fallback: 0
+apigateway.istioinaction.svc.cluster.local.lb_subsets_removed: 0
+apigateway.istioinaction.svc.cluster.local.lb_subsets_selected: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_cluster_too_small: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_no_capacity_left: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_number_differs: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_routing_all_directly: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_routing_cross_zone: 0
+apigateway.istioinaction.svc.cluster.local.lb_zone_routing_sampled: 0
+apigateway.istioinaction.svc.cluster.local.max_host_weight: 0
+apigateway.istioinaction.svc.cluster.local.membership_change: 1
+apigateway.istioinaction.svc.cluster.local.membership_healthy: 1
+apigateway.istioinaction.svc.cluster.local.membership_total: 1
+```
 
 ### 7.2.1 Pushing Istio metrics into statsD
 
