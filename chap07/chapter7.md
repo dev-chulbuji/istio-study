@@ -459,9 +459,11 @@ istio-pilot 의 환경변수 PILOT_TRACE_SAMPLIG 을 수정하여 가능함.
 
 특정 request에 대한 추적을 기록하려면 x-envoy-force-trace 사용
 
+```sh
     $  curl -H "x-envoy-force-trace: true"  \
     -H "Host: apigateway.istioinaction.io" \
     http://$GATEWAY_RUL/api/products
+```
 
 ## 7.5 Visualization with Kiali
 
