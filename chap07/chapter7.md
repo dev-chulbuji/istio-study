@@ -69,6 +69,8 @@ OpenTracing 통합을 통한 분산 추적가능
 
 ## 7.2 Collecting metrics from Istio data plane
 
+https://istio.io/docs/tasks/telemetry/metrics/tcp-metrics/
+
 실습내용 → Makefile error(내용 경로 파일 부재)
 
 ```
